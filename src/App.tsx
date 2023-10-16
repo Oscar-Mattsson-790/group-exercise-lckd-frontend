@@ -1,7 +1,12 @@
 import "./App.scss";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter basename={import.meta.env.DEV ? "/" : "/interval-app/"}>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App;
