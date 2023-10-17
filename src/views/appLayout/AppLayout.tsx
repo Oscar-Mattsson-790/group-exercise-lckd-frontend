@@ -7,6 +7,7 @@ function AppLayout() {
       <main>
         <Outlet />
       </main>
+      <button>click</button>
     </div>
   );
 }
