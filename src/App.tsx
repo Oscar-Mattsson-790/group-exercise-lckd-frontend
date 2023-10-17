@@ -4,10 +4,10 @@ import AppLayout from './views/appLayout/AppLayout';
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/group-exercise-lckd-frontend/'}>
+    <BrowserRouter >
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="/" element={<Login />} />
+          <Route path="group-exercise-lckd-frontend/" element={<Login />} />
           <Route path="signup" element={<div>sign up</div>} />
           <Route path="stored-passwords" element={<div>password</div>} />
           <Route path="new" element={<div>new credentials</div>} />
