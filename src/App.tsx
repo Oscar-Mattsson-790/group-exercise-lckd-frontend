@@ -4,7 +4,7 @@ import AppLayout from './views/appLayout/AppLayout';
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/interval-app/'}>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/group-exercise-lckd-frontend/'}>
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Login />} />
