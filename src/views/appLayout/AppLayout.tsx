@@ -1,20 +1,29 @@
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import logoIcon from '../../assets/logo.svg';
+import './AppLayout.scss';
 
 function AppLayout() {
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
   const path = location.pathname;
   console.log(path);
 
   return (
-    <div>
-      {path === '/group-exercise-lckd-frontend/' ? <header> <button className="signup-button">Sign up</button> </header> : <header>LOGO</header> }
+    <div className='main-component-container'>
+      <header>
+        {path === '/group-exercise-lckd-frontend/' ? (
+          <button className="signup-button"
+          onClick={() => {navigate('/signup')}}>Sign up</button>
+        ) : (
+          <img className='logo-img__signup-page' src={ logoIcon } alt="" />
+        )}
+      </header>
       <main>
         <Outlet />
       </main>
-      <button
-      onClick={() => navigate('/signup')}>click</button>
+      <footer>
+        <p>© 2021 LCKD</p>
+      </footer>
     </div>
   );
 }
