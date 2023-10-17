@@ -15,14 +15,14 @@ function AppLayout() {
           <button className="signup-button"
           onClick={() => {navigate('/signup')}}>Sign up</button>
         ) : (
-          <img className='logo-img__signup-page' src={ logoIcon } alt="" />
+          <img className='logo-img__pages' src={ logoIcon } alt="" />
         )}
       </header>
       <main>
         <Outlet />
       </main>
       <footer>
-        <p>© 2021 LCKD</p>
+        <p style={{color: "#fff"}}>© 2023 LCKD Made with ❤️ by Fantastic Surfers</p>
       </footer>
     </div>
   );
