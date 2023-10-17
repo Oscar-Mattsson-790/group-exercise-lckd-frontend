@@ -1,12 +1,15 @@
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 
 
 function AppLayout() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname;
+  console.log(path);
 
   return (
     <div>
-      <header>LOGO</header>
+      {path === '/group-exercise-lckd-frontend/' ? <header> <button className="signup-button">Sign up</button> </header> : <header>LOGO</header> }
       <main>
         <Outlet />
       </main>

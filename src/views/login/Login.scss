@@ -1,0 +1,35 @@
+.signup-button {
+    margin-top: 20px;
+    width: 86px;
+    height: 38px;
+    background-color: #15085F;
+    border: 1px solid #FF4910;
+    border-radius: 5px;
+    color: #FF4910;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+        background-color: #e6e6e6;
+    }
+}
+
+.main-title {
+    font-family: Open Sans;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0.15em;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.main-text {
+    font-family: Open Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.15em;
+    text-align: center;    
+    color: #FFBD21;
+}
