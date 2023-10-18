@@ -9,20 +9,28 @@ function AppLayout() {
   console.log(path);
 
   return (
-    <div className='main-component-container'>
+    <div className="main-component-container">
       <header>
-        {path === '/group-exercise-lckd-frontend/' ? (
-          <button className="signup-button"
-          onClick={() => {navigate('/signup')}}>Sign up</button>
+        {path === '/' ? (
+          <button
+            className="signup-button"
+            onClick={() => {
+              navigate('/signup');
+            }}
+          >
+            Sign up
+          </button>
         ) : (
-          <img className='logo-img__pages' src={ logoIcon } alt="" />
+          <img className="logo-img__pages" src={logoIcon} alt="" />
         )}
       </header>
       <main>
         <Outlet />
       </main>
       <footer>
-        <p style={{color: "#fff"}}>© 2023 LCKD Made with ❤️ by Fantastic Surfers</p>
+        <p style={{ color: '#fff' }}>
+          © 2023 LCKD Made with ❤️ by Fantastic Surfers
+        </p>
       </footer>
     </div>
   );
