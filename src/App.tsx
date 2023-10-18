@@ -1,14 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './views/login/Login';
 import AppLayout from './views/appLayout/AppLayout';
-
-import NewCredential from './views/new/New';
-
-function App() {
-  return (
-    <BrowserRouter basename='group-exercise-lckd-frontend'>
-
 import StoredPasswords from './views/storedPasswords/StoredPasswords.tsx';
+import NewCredential from './views/new/New';
 
 function App() {
   return (
