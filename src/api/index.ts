@@ -1,3 +1,9 @@
+interface NewCredentials {
+  username: string;
+  password: string;
+  domain: string;
+}
+
 export async function sendLoginRequest(username: string, password: string) {
   const data = {
     username,
@@ -62,11 +68,7 @@ export async function sendGetCredentialsRequest() {
     console.log(error);
   }
 }
-interface NewCredentials {
-  username: string;
-  password: string;
-  domain: string;
-}
+
 export async function sendSaveCredentialsRequest(data: NewCredentials) {
   const token = localStorage.getItem('token');
   try {
