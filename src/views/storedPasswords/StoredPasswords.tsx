@@ -1,5 +1,6 @@
 import CredentialsList from '../../components/CredentialsList/CredentialsList.tsx';
 import PasswordField from '../../components/PasswordField/PasswordField.tsx';
+import Button from '../../components/button/button.tsx';
 import { Credentials } from '../../types/types.ts';
 
 function StoredPasswords() {
@@ -16,8 +17,13 @@ function StoredPasswords() {
 
   return (
     <>
-      <CredentialsList credentials={test} />
-      <PasswordField password="Abv34$]dff4s@ff" />
+      <main>
+        <CredentialsList credentials={test} />
+        <PasswordField password="Abv34$]dff4s@ff" />
+      </main>
+      <footer>
+        <Button onClick={() => {}}>NEW LCKD</Button>
+      </footer>
     </>
   );
 }

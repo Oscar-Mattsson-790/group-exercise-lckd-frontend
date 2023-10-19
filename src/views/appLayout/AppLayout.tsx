@@ -1,6 +1,6 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import logoIcon from "../../assets/logo.svg";
-import "./AppLayout.scss";
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import logoSmall from '../../assets/logoSmall.svg';
+import './AppLayout.scss';
 
 function AppLayout() {
   const location = useLocation();
@@ -11,27 +11,26 @@ function AppLayout() {
   return (
     <div className="main-component-container">
       <header>
-        {path === "/" ? (
+        {path === '/' ? (
           <button
             className="signup-button"
             onClick={() => {
-              navigate("/signup");
+              navigate('/signup');
             }}
           >
             Sign up
           </button>
         ) : (
-          <img className="logo-img__pages" src={logoIcon} alt="" />
+          <div className="logo-container">
+            <img className="logo-container__pages" src={logoSmall} alt="logo" />
+            <h3 className="logo-container__text">LCKD</h3>
+          </div>
         )}
       </header>
-      <main>
-        <Outlet />
-      </main>
-      <footer>
-        <p style={{ color: "#fff" }}>
-          © 2023 LCKD Made with ❤️ by Fantastic Surfers
-        </p>
-      </footer>
+      <Outlet />
+      <p style={{ color: '#fff' }}>
+        © 2023 LCKD Made with ❤️ by Fantastic Surfers
+      </p>
     </div>
   );
 }

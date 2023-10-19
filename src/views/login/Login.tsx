@@ -1,5 +1,5 @@
-import './Login.scss'
-import logo from '../../assets/logo.svg'
+import './Login.scss';
+import logo from '../../assets/logo.svg';
 import Button from '../../components/button/button';
 import InputField from '../../components/inputfield/inputfield';
 import { useState } from 'react';
@@ -18,12 +18,26 @@ function Login() {
 
   return (
     <>
-      <img src={logo} alt="Logo picture" />
-      <h1 className='main-title'>LCKD</h1>
-      <h3 className='main-text'>KEEPING YOUR PASSWORDS SAFE</h3>
-      <InputField label='USERNAME' type='username' value={username} onChange={handleOnChangeUserName} />
-      <InputField label='PASSWORD' type='password' value={password} onChange={handleOnChangePassword} />
-      <Button onClick={() => {}}>LET ME IN</Button>
+      <main>
+        <img src={logo} alt="Logo picture" />
+        <h1 className="main-title">LCKD</h1>
+        <h3 className="main-text">KEEPING YOUR PASSWORDS SAFE</h3>
+        <InputField
+          label="USERNAME"
+          type="username"
+          value={username}
+          onChange={handleOnChangeUserName}
+        />
+        <InputField
+          label="PASSWORD"
+          type="password"
+          value={password}
+          onChange={handleOnChangePassword}
+        />
+      </main>
+      <footer>
+        <Button onClick={() => {}}>LET ME IN</Button>
+      </footer>
     </>
   );
 }
