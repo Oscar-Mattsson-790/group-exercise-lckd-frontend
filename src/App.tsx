@@ -1,10 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./views/login/Login";
-import AppLayout from "./views/appLayout/AppLayout";
-import StoredPasswords from "./views/storedPasswords/StoredPasswords.tsx";
-import Edit from "./views/edit/Edit.tsx";
-import NewCredential from "./views/new/New.tsx";
-import Signup from "./views/singup/signup.tsx";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './views/login/Login';
+import AppLayout from './views/appLayout/AppLayout';
+import StoredPasswords from './views/storedPasswords/StoredPasswords.tsx';
+import Edit from './views/edit/Edit.tsx';
+import NewCredential from './views/new/New.tsx';
+import Signup from './views/singup/signup.tsx';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-interface NewCredentials {
+export interface NewCredentials {
   username: string;
   password: string;
   domain: string;

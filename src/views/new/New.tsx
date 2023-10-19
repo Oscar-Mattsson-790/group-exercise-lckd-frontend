@@ -3,13 +3,14 @@ import './New.scss';
 import Button from '../../components/button/button';
 import { useState } from 'react';
 import { sendSaveCredentialsRequest } from '../../api';
+import { NewCredentials } from '../../api';
 function NewCredential() {
   const [website, setWebsite] = useState('www.tickster.com');
   const [username, setUsername] = useState('sixten.svensson');
   const [password, setPassword] = useState('');
 
   function generateSecurePassword() {
-    const length = 12;
+    const length = 20;
     const charset =
       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:'<>,.?/";
 
@@ -30,7 +31,7 @@ function NewCredential() {
   }
 
   async function handleOnClick() {
-    const data = {
+    const data: NewCredentials = {
       username,
       password,
       domain: website,
