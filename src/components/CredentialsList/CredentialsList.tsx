@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CredentialsListItem from './CredentialsListItem/CredentialsListItem.tsx';
 
 import type { Credentials } from '../../types/types.ts';
@@ -11,6 +12,8 @@ interface Props {
 }
 
 function CredentialsList({ credentials, buttonView, buttonEdit }: Props) {
+  const [selectedItemId, setSelectedItemId] = useState('');
+
   return (
     <article className="credentials-list">
       <label className="credentials-list__label">Stored passwords</label>
@@ -20,8 +23,11 @@ function CredentialsList({ credentials, buttonView, buttonEdit }: Props) {
             key={credential.id}
             credentials={credential}
             buttonEdit={() => buttonEdit(credential)}
-            buttonView={() => buttonView(credential)}
-            selected
+            buttonView={() => {
+              setSelectedItemId(credential.id);
+              buttonView(credential);
+            }}
+            selected={selectedItemId == credential.id}
           />
         ))}
       </ol>

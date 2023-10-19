@@ -27,7 +27,10 @@ function CredentialsItem({
     <li
       onMouseOver={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
-      className="credentials-list-item"
+      className={
+        'credentials-list-item' +
+        (selected ? ' credentials-list-item--selected' : '')
+      }
     >
       <p className="credentials-list-item__domain">{credentials.domain}</p>
 
