@@ -4,6 +4,7 @@ import AppLayout from "./views/appLayout/AppLayout";
 import StoredPasswords from "./views/storedPasswords/StoredPasswords.tsx";
 import Edit from "./views/edit/Edit.tsx";
 import NewCredential from "./views/new/New.tsx";
+import Signup from "./views/singup/signup.tsx";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Login />} />
-          <Route path="signup" element={<div>sign up</div>} />
+          <Route path="signup" element={<Signup />} />
 
           <Route path="stored-passwords" element={<div>password</div>} />
           <Route path="new" element={<NewCredential />} />
