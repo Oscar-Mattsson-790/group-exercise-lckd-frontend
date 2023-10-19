@@ -21,6 +21,7 @@ export async function sendLoginRequest(username: string, password: string) {
     if (response.ok) {
       const result = await response.json();
       localStorage.setItem('token', result.data.token);
+      return result;
     }
   } catch (error) {
     console.log(error);
