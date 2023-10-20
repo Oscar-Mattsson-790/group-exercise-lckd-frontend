@@ -4,8 +4,10 @@ import Button from '../../components/button/button';
 import InputField from '../../components/inputfield/inputfield';
 import { useState } from 'react';
 import { sendLoginRequest } from '../../api';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,6 +17,13 @@ function Login() {
 
   function handleOnChangePassword(event: React.ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
+  }
+
+  async function handleOnClick() {
+    const result = await sendLoginRequest(username, password);
+    if (result) {
+      navigate('stored-passwords');
+    }
   }
 
   return (
@@ -37,9 +46,7 @@ function Login() {
         />
       </main>
       <footer>
-        <Button onClick={async () => sendLoginRequest(username, password)}>
-          LET ME IN
-        </Button>
+        <Button onClick={handleOnClick}>LET ME IN</Button>
       </footer>
     </>
   );

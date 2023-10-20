@@ -2,11 +2,12 @@ import './button.scss';
 interface Props {
   onClick: () => void;
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
-function Button({ onClick, children }: Props) {
+function Button({ onClick, children, disabled }: Props) {
   return (
-    <button className="button" onClick={onClick}>
+    <button disabled={disabled} className="button" onClick={onClick}>
       {children}
     </button>
   );

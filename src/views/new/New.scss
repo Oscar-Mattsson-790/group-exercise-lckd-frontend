@@ -1,28 +1,29 @@
 .main-text-new-view {
-    text-align: center;
-    font-family: Open Sans;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 33px;
-    letter-spacing: 0.15em;
-    color: #FFFFFF;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  letter-spacing: 0.15em;
+  color: #ffffff;
 }
 
 .styled-button-container {
-    margin-top: 65px;
+  margin-top: 65px;
 }
 
 .refresh-button {
-    position: absolute;
-    width: 40px;
-    height: 43.56px;
-    left: 86%;
-    top: 58%;
-    border: 1.4px;
-    color: #FFBD21;
-    font-size: 40px;
+  position: absolute;
+  width: 40px;
+  height: 43.56px;
+  left: 86%;
+  top: 58%;
+  border: 1.4px;
+  color: #ffbd21;
+  font-size: 40px;
+  cursor: pointer;
 }
 
-.label-container{
-    position: relative;
+.label-container {
+  position: relative;
 }

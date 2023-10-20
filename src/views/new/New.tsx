@@ -2,9 +2,25 @@ import InputField from '../../components/inputfield/inputfield';
 import './New.scss';
 import Button from '../../components/button/button';
 import { useState } from 'react';
+import { sendSaveCredentialsRequest } from '../../api';
+import { NewCredentials } from '../../api';
 function NewCredential() {
   const [website, setWebsite] = useState('www.tickster.com');
   const [username, setUsername] = useState('sixten.svensson');
+  const [password, setPassword] = useState('');
+
+  function generateSecurePassword() {
+    const length = 20;
+    const charset =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:'<>,.?/";
+
+    let password = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      password += charset[randomIndex];
+    }
+    setPassword(password);
+  }
 
   function handleOnChangeWebsite(event: React.ChangeEvent<HTMLInputElement>) {
     setWebsite(event.target.value);
@@ -12,6 +28,15 @@ function NewCredential() {
 
   function handleOnChangeUserName(event: React.ChangeEvent<HTMLInputElement>) {
     setUsername(event.target.value);
+  }
+
+  async function handleOnClick() {
+    const data: NewCredentials = {
+      username,
+      password,
+      domain: website,
+    };
+    await sendSaveCredentialsRequest(data);
   }
 
   return (
@@ -31,20 +56,25 @@ function NewCredential() {
           onChange={handleOnChangeUserName}
         />
         <div className="label-container">
-          <span className="refresh-button" onClick={() => {}}>
+          <span className="refresh-button" onClick={generateSecurePassword}>
             ↻
           </span>
           <InputField
             label="SECURE PASSWORD"
             type="text"
-            value={''}
+            value={password}
             disabled={true}
           />
         </div>
       </main>
       <footer>
         <div className="styled-button-container">
-          <Button onClick={() => {}}>CREATE LCKD</Button>
+          <Button
+            disabled={password === '' ? true : false}
+            onClick={handleOnClick}
+          >
+            CREATE LCKD
+          </Button>
         </div>
       </footer>
     </>

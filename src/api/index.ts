@@ -1,4 +1,4 @@
-interface NewCredentials {
+export interface NewCredentials {
   username: string;
   password: string;
   domain: string;
@@ -21,6 +21,7 @@ export async function sendLoginRequest(username: string, password: string) {
     if (response.ok) {
       const result = await response.json();
       localStorage.setItem('token', result.data.token);
+      return result;
     }
   } catch (error) {
     console.log(error);
@@ -71,6 +72,7 @@ export async function sendGetCredentialsRequest() {
 
 export async function sendSaveCredentialsRequest(data: NewCredentials) {
   const token = localStorage.getItem('token');
+  console.log(token);
   try {
     const response = await fetch(
       `${import.meta.env.VITE_BASE_URL}/credentials`,
@@ -85,9 +87,9 @@ export async function sendSaveCredentialsRequest(data: NewCredentials) {
     );
     console.log(response);
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! Status: ${response.status}`);
+    // }
 
     const result = await response.json();
     console.log(result);
