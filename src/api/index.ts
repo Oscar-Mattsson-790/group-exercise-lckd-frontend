@@ -63,8 +63,10 @@ export async function sendGetCredentialsRequest() {
         },
       }
     );
+
     const result = await response.json();
-    console.log(result);
+    console.log(result.data.credentials);
+    return result.data.credentials;
   } catch (error) {
     console.log(error);
   }

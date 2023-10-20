@@ -6,29 +6,46 @@ import IconViewDisabled from '../../icons/IconViewDisabled.tsx';
 
 import './CredentialsListItem.scss';
 
+import type { Credentials } from '../../../types/types.ts';
+
 interface Props {
-  domain: string;
+  credentials: Credentials;
+  buttonView: () => void;
+  buttonEdit: () => void;
+  selected: boolean;
 }
 
-function CredentialsItem({ domain }: Props) {
+function CredentialsItem({
+  credentials,
+  buttonView,
+  buttonEdit,
+  selected,
+}: Props) {
   const [isActive, setIsActive] = useState(false);
 
   return (
     <li
       onMouseOver={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
-      className="credentials-list-item"
+      className={
+        'credentials-list-item' +
+        (selected ? ' credentials-list-item--selected' : '')
+      }
     >
-      <p className="credentials-list-item__domain">{domain}</p>
+      <p className="credentials-list-item__domain">{credentials.domain}</p>
 
       <aside className={'credentials-list-item__buttons'}>
         {isActive ? (
           <>
-            <IconEdit />
-            <IconView />
+            <button onClick={buttonEdit}>
+              <IconEdit />
+            </button>
+            <button onClick={buttonView}>
+              <IconView />
+            </button>
           </>
         ) : (
-          <IconViewDisabled />
+          <>{selected ? <IconView /> : <IconViewDisabled />}</>
         )}
       </aside>
     </li>
