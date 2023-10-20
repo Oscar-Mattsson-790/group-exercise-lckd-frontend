@@ -143,3 +143,23 @@ export async function sendUpdateRequest(id: string, data: object) {
     console.log(error);
   }
 }
+
+export async function getCredentialsData (id: string) {
+  const token = localStorage.getItem('token');
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_URL}/credentials/${id}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    )
+
+    const result = await response.json();
+    console.log(result);
+  } catch (error) {
+    console.log(error)
+  }
+}
